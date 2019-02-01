@@ -1,5 +1,10 @@
 # Release Notes for Payment Express for Craft Commerce
 
+## 1.1.3 - 2019-02-02
+### Added
+- Added additional documentation to assist with testing payments.
+- Added a warning on the gateway settings form to ensure the right payment type is selected.
+
 ## 1.1.2 - 2019-02-02
 ### Fixed
 - Fixed an issue with the widget when no orders had been placed.

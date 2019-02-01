@@ -1,4 +1,6 @@
-{% from "_includes/forms" import textField, lightswitchField %}
+{% from "_includes/forms" import textField, lightswitchField, selectField %}
+
+<div class="field"><p class="warning">This Gateway (PxPay) currently only supports the Credit Card Payment Type "Purchase".</p></div>
 
 {{ textField({
      label: "Username"|t('commerce'),
@@ -21,6 +23,7 @@
  {{ lightswitchField({
      label: "Test mode?"|t('commerce'),
      name: 'testMode',
+     instructions: 'If test mode is enabled you can use the test card numbers found <a href="https://www.paymentexpress.com/support-merchant-frequently-asked-questions-testing-details" target="_blank">here</a>',
      on: gateway.testMode,
      errors: gateway.getErrors('testMode'),
  }) }}
