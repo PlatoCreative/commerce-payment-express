@@ -14,7 +14,7 @@ use yii\base\Event;
  * Plugin represents the Payment Express integration plugin.
  *
  * @author Plato Creative. <web@platocreative.co.nz>
- * @since  1.1.1
+ * @since  1.1.2
  */
 class Plugin extends \craft\base\Plugin
 {

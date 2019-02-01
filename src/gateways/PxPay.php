@@ -16,7 +16,7 @@ use yii\base\NotSupportedException;
  * Gateway represents PaymentExpress gateway
  *
  * @author    Plato Creative. <web@platocreative.co.nz>
- * @since     1.1.1
+ * @since     1.1.2
  */
 
 class PxPay extends OffsiteGateway
@@ -56,7 +56,7 @@ class PxPay extends OffsiteGateway
      */
     public function getSettingsHtml()
     {
-        return Craft::$app->getView()->renderTemplate('commerce-payment-express/gatewaySettings', ['gateway' => $this]);
+        return Craft::$app->getView()->renderTemplate('payment-express-for-craft-commerce-2/gatewaySettings', ['gateway' => $this]);
     }
 
     /**

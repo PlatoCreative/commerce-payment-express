@@ -20,7 +20,7 @@ use platocreative\paymentexpress\web\assets\overviewwidget\OverviewWidgetAsset;
  * @property string $settingsHtml the component’s settings HTML
  * @property string $title the widget’s title
  * @author Plato Creative. <web@platocreative.co.nz>
- * @since 1.1.1
+ * @since 1.1.2
  */
 class Overview extends Widget
 {
@@ -80,7 +80,7 @@ class Overview extends Widget
         $view = Craft::$app->getView();
         $view->registerAssetBundle(OverviewWidgetAsset::class);
 
-        return $view->renderTemplate('commerce-payment-express/_components/widgets/Overview/body', [
+        return $view->renderTemplate('payment-express-for-craft-commerce-2/_components/widgets/Overview/body', [
             'revenue' => $revenue,
             'transactions' => $transactions,
             'settings' => $settings,
@@ -92,16 +92,7 @@ class Overview extends Widget
      */
     public function getSettingsHtml(): string
     {
-        // $orderStatuses = Plugin::getInstance()->getOrderStatuses()->getAllOrderStatuses();
-
-        // Craft::$app->getView()->registerAssetBundle(OrdersWidgetAsset::class);
-
-        // $id = 'analytics-settings-' . StringHelper::randomString();
-        // $namespaceId = Craft::$app->getView()->namespaceInputId($id);
-
-        // Craft::$app->getView()->registerJs("new Craft.Commerce.OrdersWidgetSettings('" . $namespaceId . "');");
-
-        return Craft::$app->getView()->renderTemplate('commerce-payment-express/_components/widgets/Overview/settings', [
+        return Craft::$app->getView()->renderTemplate('payment-express-for-craft-commerce-2/_components/widgets/Overview/settings', [
             'widget' => $this,
         ]);
     }
@@ -131,8 +122,8 @@ class Overview extends Widget
     private function _getGatewaySettings()
     {
         $gateway = Plugin::getInstance()->getGateways()->getGatewayByHandle($this->gatewayHandle);
-        if ($gateway) {
-            return json_decode($gateway->settings, true);
+        if ($gateway && $gateway->settings) {
+            return $gateway->settings;
         }
 
         return false;
@@ -152,9 +143,14 @@ class Overview extends Widget
             $query->gatewayId($gateway->id);
             $query->isCompleted(true);
             $query->dateOrdered(':notempty:');
-
-            $currency = Plugin::getInstance()->getPaymentCurrencies()->getPrimaryPaymentCurrencyIso();
-            $totalHtml = Craft::$app->getFormatter()->asCurrency($query->sum("totalPaid"), strtoupper($currency));
+            $total = $query->sum("totalPaid");
+            
+            if ($total > 0) {
+                $currency = Plugin::getInstance()->getPaymentCurrencies()->getPrimaryPaymentCurrencyIso();
+                $totalHtml = Craft::$app->getFormatter()->asCurrency($total, strtoupper($currency));
+            } else {
+                $totalHtml = 0;
+            }
 
             return $totalHtml;
         }

@@ -1,5 +1,10 @@
 # Release Notes for Payment Express for Craft Commerce
 
+## 1.1.2 - 2019-02-02
+### Fixed
+- Fixed an issue with the widget when no orders had been placed.
+- Fixed template rendering issue
+
 ## 1.1.1 - 2019-02-01
 ### Fixed
 - Fixed an issue with the plugin handle which was causing install issues.
