@@ -14,7 +14,7 @@ use craft\web\assets\cp\CpAsset;
  * Asset bundle for the Overview widget
  *
  * @author Plato Creative. <web@platocreative.co.nz>
- * @since 1.1.0
+ * @since 1.1.1
  */
 class OverviewWidgetAsset extends AssetBundle
 {

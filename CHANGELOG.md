@@ -1,5 +1,9 @@
 # Release Notes for Payment Express for Craft Commerce
 
+## 1.1.1 - 2019-02-01
+### Fixed
+- Fixed an issue with the plugin handle which was causing install issues.
+
 ## 1.1.0 - 2019-02-01
 ### Added
 - Added Gateway overview widget.

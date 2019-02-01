@@ -1,7 +1,7 @@
 {
   "name": "platocreative/commerce-payment-express",
   "description": "Payment Express (DPS) integration for Craft Commerce 2",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "craft-plugin",
   "keywords": [
     "payment express",
@@ -39,7 +39,7 @@
   },
 
   "extra": {
-    "name": "Payment Express for Craft Commerce",
-    "handle": "commerce-payment-express"
+    "name": "Payment Express for Craft Commerce 2",
+    "handle": "payment-express-for-craft-commerce-2"
   }
 }
