@@ -1,0 +1,34 @@
+<div class="paymentexpress-overview-container">
+
+    {% if settings %}
+    <table class="data fullwidth">
+        <thead>
+        <tr>
+            <th style="width:60%">Account</th>
+            <th style="width:40%">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ settings.username }}</td>
+                <td class="gateway-status"><span class="gateway-status">{% if settings.testMode == 1 %}<span class="gateway-status-icon gateway-status-icon--test"></span> TEST{% else %}<span class="gateway-status-icon gateway-status-icon--live"></span> LIVE{% endif %}</span></td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+
+    <table class="data fullwidth">
+        <thead>
+        <tr>
+            <th style="width:60%">Revenue</th>
+            <th style="width:40%">Transactions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ revenue }}</td>
+                <td>{{ transactions }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -5,6 +5,8 @@ namespace platocreative\paymentexpress;
 use platocreative\paymentexpress\gateways\PxPay;
 use craft\commerce\services\Gateways;
 use craft\events\RegisterComponentTypesEvent;
+use craft\services\Dashboard;
+use platocreative\paymentexpress\widgets\Overview;
 use yii\base\Event;
 
 
@@ -12,7 +14,7 @@ use yii\base\Event;
  * Plugin represents the Payment Express integration plugin.
  *
  * @author Plato Creative. <web@platocreative.co.nz>
- * @since  1.0.1
+ * @since  1.1.0
  */
 class Plugin extends \craft\base\Plugin
 {
@@ -32,6 +34,10 @@ class Plugin extends \craft\base\Plugin
 
         Event::on(Gateways::class, Gateways::EVENT_REGISTER_GATEWAY_TYPES,  function(RegisterComponentTypesEvent $event) {
             $event->types[] = PxPay::class;
+        });
+
+        Event::on(Dashboard::class, Dashboard::EVENT_REGISTER_WIDGET_TYPES, function(RegisterComponentTypesEvent $event) {
+            $event->types[] = Overview::class;
         });
     }
 

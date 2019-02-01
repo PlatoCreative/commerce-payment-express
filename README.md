@@ -34,3 +34,4 @@ composer require platocreative/commerce-payment-express
 ## Setup
 
 To add an Payment Express payment gateway, go to Commerce → Settings → Gateways, create a new gateway, and set the gateway type to “Payment Express”.
+We recommend using the Gateway handle "paymentExpress".

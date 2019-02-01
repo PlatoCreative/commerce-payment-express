@@ -1,0 +1,20 @@
+.widget.platocreative\\paymentexpress\\widgets\\overview .body .gateway-status {
+    
+}
+
+.widget.platocreative\\paymentexpress\\widgets\\overview .body .gateway-status .gateway-status-icon {
+    display: inline-block;
+    content:"";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #666666;
+}
+
+.widget.platocreative\\paymentexpress\\widgets\\overview .body .gateway-status .gateway-status-icon--test {
+    background-color: #da5a47;
+}
+
+.widget.platocreative\\paymentexpress\\widgets\\overview .body .gateway-status .gateway-status-icon--live {
+    background-color: #3baf73;
+}

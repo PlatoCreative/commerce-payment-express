@@ -1,0 +1,184 @@
+<?php
+/**
+ * @link      https://github.com/platocreative
+ * @copyright Plato Creative.
+ * @license   MIT
+ */
+
+namespace platocreative\paymentexpress\widgets;
+
+use Craft;
+use craft\base\Widget;
+use craft\commerce\elements\Order;
+use craft\commerce\Plugin;
+use platocreative\paymentexpress\web\assets\overviewwidget\OverviewWidgetAsset;
+
+/**
+ * Class Orders
+ *
+ * @property string|false $bodyHtml the widget's body HTML
+ * @property string $settingsHtml the component’s settings HTML
+ * @property string $title the widget’s title
+ * @author Plato Creative. <web@platocreative.co.nz>
+ * @since 1.1.0
+ */
+class Overview extends Widget
+{
+    // Properties
+    // =========================================================================
+
+    /**
+     * @var int|null
+     */
+    public $gatewayHandle = "paymentExpress";
+
+    // Public Methods
+    // =========================================================================
+
+    /**
+     * @inheritdoc
+     */
+    public static function isSelectable(): bool
+    {
+        // This widget is only available to users that can manage orders
+        return Craft::$app->getUser()->checkPermission('commerce-manageOrders');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function displayName(): string
+    {
+        return Craft::t('commerce', 'Payment Express Gateway');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function iconPath(): string
+    {
+        return Craft::getAlias('@craft/commerce/icon-mask.svg');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getTitle(): string
+    {
+        return parent::getTitle();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getBodyHtml()
+    {
+        $revenue = $this->_getRevenue();
+        $transactions = $this->_getTotalTransactions();
+        $settings = $this->_getGatewaySettings();
+
+        $view = Craft::$app->getView();
+        $view->registerAssetBundle(OverviewWidgetAsset::class);
+
+        return $view->renderTemplate('commerce-payment-express/_components/widgets/Overview/body', [
+            'revenue' => $revenue,
+            'transactions' => $transactions,
+            'settings' => $settings,
+        ]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSettingsHtml(): string
+    {
+        // $orderStatuses = Plugin::getInstance()->getOrderStatuses()->getAllOrderStatuses();
+
+        // Craft::$app->getView()->registerAssetBundle(OrdersWidgetAsset::class);
+
+        // $id = 'analytics-settings-' . StringHelper::randomString();
+        // $namespaceId = Craft::$app->getView()->namespaceInputId($id);
+
+        // Craft::$app->getView()->registerJs("new Craft.Commerce.OrdersWidgetSettings('" . $namespaceId . "');");
+
+        return Craft::$app->getView()->renderTemplate('commerce-payment-express/_components/widgets/Overview/settings', [
+            'widget' => $this,
+        ]);
+    }
+
+    // Private Methods
+    // =========================================================================
+
+    /**
+     * Get the gateway as per $gatewayHandle
+     *
+     * @return Gateway
+     */
+    private function _getGateway()
+    {
+        $gateway = Plugin::getInstance()->getGateways()->getGatewayByHandle($this->gatewayHandle);
+        if ($gateway) {
+            return $gateway;
+        }
+        return false;
+    }
+
+    /**
+     * Helper function to return gateway settings as an array
+     *
+     * @return array
+     */
+    private function _getGatewaySettings()
+    {
+        $gateway = Plugin::getInstance()->getGateways()->getGatewayByHandle($this->gatewayHandle);
+        if ($gateway) {
+            return json_decode($gateway->settings, true);
+        }
+
+        return false;
+    }
+
+    /**
+     * Returns the total of all orders that have been made by this gateway.
+     *
+     * @return string
+     */
+    private function _getRevenue(): string
+    {
+        $gateway = $this->_getGateway();
+        if ($gateway) {
+
+            $query = Order::find();
+            $query->gatewayId($gateway->id);
+            $query->isCompleted(true);
+            $query->dateOrdered(':notempty:');
+
+            $currency = Plugin::getInstance()->getPaymentCurrencies()->getPrimaryPaymentCurrencyIso();
+            $totalHtml = Craft::$app->getFormatter()->asCurrency($query->sum("totalPaid"), strtoupper($currency));
+
+            return $totalHtml;
+        }
+
+        return 0;
+    }
+
+    /**
+     * Returns the total amount of trnasactions made by this gateway.
+     *
+     * @return string
+     */
+    private function _getTotalTransactions(): string
+    {
+        $gateway = $this->_getGateway();
+        if ($gateway) {
+
+            $query = Order::find();
+            $query->gatewayId($gateway->id);
+            $query->isCompleted(true);
+            $query->dateOrdered(':notempty:');
+            return $query->count();
+        }
+
+        return 0;
+    }
+}

@@ -1,0 +1,11 @@
+{% import "_includes/forms" as forms %}
+
+<div>
+    <p><em>Default gateway handle is "paymentExpress", change it here if you used something different.</em></p>
+    {{ forms.textField({
+        label: "Gateway Handle"|t('commerce'),
+        name: 'gatewayHandle',
+        value: widget.gatewayHandle,
+        errors: widget.getErrors('gatewayHandle')
+    }) }}
+</div>
