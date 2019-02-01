@@ -1,0 +1,45 @@
+{
+  "name": "platocreative/commerce-payment-express",
+  "description": "Payment Express (DPS) integration for Craft Commerce 2",
+  "version": "1.0",
+  "type": "craft-plugin",
+  "keywords": [
+    "payment express",
+    "pxpay",
+    "dps",
+    "commerce",
+    "craftcms",
+    "omnipay",
+    "yii2"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Plato Creative",
+      "homepage": "https://github.com/PlatoCreative"
+    }
+  ],
+  "support": {
+    "email": "web@platocreative.co.nz",
+    "issues": "https://github.com/platocreative/commerce-payment-express/issues?state=open",
+    "source": "https://github.com/platocreative/commerce-payment-express",
+    "docs": "https://github.com/platocreative/commerce-payment-express",
+    "rss": "https://github.com/platocreative/commerce-payment-express/commits/master.atom"
+  },
+  "require": {
+    "craftcms/cms": "^3.0.0",
+    "craftcms/commerce": "^2.0.0",
+    "craftcms/commerce-omnipay": "^1.0.0",
+    "omnipay/paymentexpress": "v2.2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "platocreative\\paymentexpress\\": "src/"
+    }
+  },
+
+  "extra": {
+    "name": "Payment Express for Craft Commerce",
+    "handle": "commerce-payment-express"
+  }
+}
