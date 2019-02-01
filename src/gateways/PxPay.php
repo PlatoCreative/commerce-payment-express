@@ -16,7 +16,7 @@ use yii\base\NotSupportedException;
  * Gateway represents PaymentExpress gateway
  *
  * @author    Plato Creative. <web@platocreative.co.nz>
- * @since     1.0
+ * @since     1.0.1
  */
 
 class PxPay extends OffsiteGateway
