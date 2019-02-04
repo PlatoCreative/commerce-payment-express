@@ -1,5 +1,9 @@
 # Release Notes for Payment Express for Craft Commerce
 
+## 1.1.4 - 2019-02-05
+### Removed
+- Craft Plugin Store Editions support as it's not required.
+
 ## 1.1.3 - 2019-02-02
 ### Added
 - Added additional documentation to assist with testing payments.

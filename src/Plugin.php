@@ -14,13 +14,10 @@ use yii\base\Event;
  * Plugin represents the Payment Express integration plugin.
  *
  * @author Plato Creative. <web@platocreative.co.nz>
- * @since  1.1.3
+ * @since  1.1.4
  */
 class Plugin extends \craft\base\Plugin
 {
-
-    const EDITION_LITE = 'lite';
-    const EDITION_PRO = 'pro';
 
     // Public Methods
     // =========================================================================
@@ -41,10 +38,4 @@ class Plugin extends \craft\base\Plugin
         });
     }
 
-    public static function editions(): array
-    {
-        return [
-            self::EDITION_LITE
-        ];
-    }
 }

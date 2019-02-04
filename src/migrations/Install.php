@@ -16,7 +16,7 @@ use craft\db\Query;
  * Installation Migration
  *
  * @author Plato Creative. <web@platocreative.co.nz>
- * @since  1.1.3
+ * @since  1.1.4
  */
 class Install extends Migration
 {

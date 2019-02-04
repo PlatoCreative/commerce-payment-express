@@ -20,7 +20,7 @@ use platocreative\paymentexpress\web\assets\overviewwidget\OverviewWidgetAsset;
  * @property string $settingsHtml the component’s settings HTML
  * @property string $title the widget’s title
  * @author Plato Creative. <web@platocreative.co.nz>
- * @since 1.1.3
+ * @since 1.1.4
  */
 class Overview extends Widget
 {
