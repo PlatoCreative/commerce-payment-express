@@ -2,12 +2,15 @@
 
 namespace platocreative\paymentexpress\gateways;
 
+use platocreative\paymentexpress\models\RequestResponse;
+
 use Craft;
 use craft\commerce\base\RequestResponseInterface;
 use craft\commerce\models\Transaction;
 use craft\commerce\records\Transaction as TransactionRecord;
 use craft\commerce\omnipay\base\OffsiteGateway;
 use Omnipay\Common\AbstractGateway;
+use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\Omnipay;
 use Omnipay\PaymentExpress\PxPayGateway as Gateway;
 use yii\base\NotSupportedException;
