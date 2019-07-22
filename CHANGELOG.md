@@ -1,5 +1,9 @@
 # Release Notes for Payment Express for Craft Commerce
 
+## 1.1.5 - 2019-07-23
+### Fixed
+- Added a custom reponse class to handle isProcessing()
+
 ## 1.1.4 - 2019-02-05
 ### Removed
 - Craft Plugin Store Editions support as it's not required.
