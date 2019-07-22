@@ -108,4 +108,18 @@ class PxPay extends OffsiteGateway
         return $request;
 
     }
+    
+        
+    // Protected Methods
+    // =========================================================================
+
+    /**
+     * @inheritdoc
+     */
+    protected function prepareResponse(ResponseInterface $response, Transaction $transaction): RequestResponseInterface
+    {
+        return new RequestResponse($response, $transaction);
+    }
+    
+    
 }
