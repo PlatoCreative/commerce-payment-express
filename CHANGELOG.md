@@ -2,7 +2,7 @@
 
 ## 1.1.5 - 2019-07-23
 ### Fixed
-- Added a custom reponse class to handle isProcessing()
+- Added a custom response class to handle isProcessing()
 
 ## 1.1.4 - 2019-02-05
 ### Removed
