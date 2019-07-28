@@ -1,5 +1,9 @@
 # Release Notes for Payment Express for Craft Commerce
 
+## 1.1.6 - 2019-07-28
+### Fixed
+- Test mode is now passed through to gateway
+
 ## 1.1.5 - 2019-07-23
 ### Fixed
 - Added a custom response class to handle isProcessing()
