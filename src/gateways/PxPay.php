@@ -80,9 +80,9 @@ class PxPay extends OffsiteGateway
     {
         /** @var Gateway $gateway */
         $gateway = Omnipay::create($this->getGatewayClassName());
-        $gateway->setUsername($this->username);
-        $gateway->setPassword($this->password);
-        $gateway->setTestMode($this->testMode);
+        $gateway->setUsername(Craft::parseEnv($this->username));
+        $gateway->setPassword(Craft::parseEnv($this->password));
+        $gateway->setTestMode(Craft::parseEnv($this->testMode));
         return $gateway;
     }
 

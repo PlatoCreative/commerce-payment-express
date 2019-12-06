@@ -1,22 +1,24 @@
-{% from "_includes/forms" import textField, lightswitchField, selectField %}
+{% from "_includes/forms" import autosuggestField, lightswitchField %}
 
 <div class="field"><p class="warning">This Gateway (PxPay) currently only supports the Credit Card Payment Type "Purchase".</p></div>
 
-{{ textField({
+{{ autosuggestField({
      label: "Username"|t('commerce'),
      id: 'username',
      class: 'ltr',
      name: 'username',
      value: gateway.username,
+     suggestEnvVars: true,
      errors: gateway.getErrors('username')
  }) }}
 
-  {{ textField({
+  {{ autosuggestField({
      label: "Password"|t('commerce'),
      id: 'password',
      class: 'ltr',
      name: 'password',
      value: gateway.password,
+     suggestEnvVars: true,
      errors: gateway.getErrors('password')
  }) }}
 
