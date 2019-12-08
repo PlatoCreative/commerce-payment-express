@@ -1,5 +1,9 @@
 # Release Notes for Payment Express for Craft Commerce
 
+## 1.2.0 - 2019-12-09
+### Fixed
+- Username and password can now be environment variables.
+
 ## 1.1.6 - 2019-07-28
 ### Fixed
 - Test mode is now passed through to gateway
