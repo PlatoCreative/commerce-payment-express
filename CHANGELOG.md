@@ -1,5 +1,9 @@
 # Release Notes for Payment Express (Windcave) for Craft Commerce
 
+## 1.3.2.2 - 2020-04-24
+### Fixed
+- Added back Craft version declaration
+
 ## 1.3.2.1 - 2020-04-24
 ### Fixed
 - Minor fix for composer
