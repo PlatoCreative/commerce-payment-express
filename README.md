@@ -1,12 +1,12 @@
-<p align="center"><img src="./src/icon.svg" width="100" height="100" alt="Payment Express for Craft Commerce icon"></p>
+<p align="center"><img src="./resources/logo.svg" width="150" alt="Payment Express (Windcave) for Craft Commerce"></p>
 
-<h1 align="center">Payment Express for Craft Commerce</h1>
+<h1 align="center">Payment Express (Windcave) for Craft Commerce</h1>
 
-This plugin provides an [Payment Express](https://www.paymentexpress.com) integration (PXPay) for [Craft Commerce](https://craftcms.com/commerce).
+This plugin provides an [Payment Express/Windcave](https://www.windcave.com/) integration (PXPay) for [Craft Commerce](https://craftcms.com/commerce).
 
 ## Requirements
 
-This plugin requires Craft Commerce 2.0.0 or later.
+This plugin requires Craft Commerce 3.0.0 or later.
 
 ## Installation
 
