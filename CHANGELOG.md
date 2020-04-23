@@ -1,5 +1,9 @@
 # Release Notes for Payment Express (Windcave) for Craft Commerce
 
+## 1.3.2 - 2020-04-24
+### Fixed
+- Minor fix for composer
+
 ## 1.3.1 - 2020-04-23
 ### Fixed
 - Fix for omnipay/paymentexpress version
