@@ -1,7 +1,7 @@
 {
   "name": "platocreative/commerce-payment-express",
   "description": "Payment Express (DPS) (Windcave) integration for Craft Commerce 2",
-  "version": "1.3.0.1",
+  "version": "1.3.1",
   "type": "craft-plugin",
   "keywords": [
     "payment express",
@@ -27,10 +27,9 @@
     "rss": "https://github.com/platocreative/commerce-payment-express/commits/master.atom"
   },
   "require": {
-    "craftcms/cms": "^3.1.5",
-    "craftcms/commerce": "^2.2.0|^3.0",
+    "craftcms/commerce": "^2.2|^3.0",
     "craftcms/commerce-omnipay": "^2.0.0",
-    "omnipay/paymentexpress": "v2.2.2"
+    "omnipay/paymentexpress": "v3.0.1"
   },
   "autoload": {
     "psr-4": {
