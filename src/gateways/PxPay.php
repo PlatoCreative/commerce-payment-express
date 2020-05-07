@@ -3,6 +3,8 @@
 namespace platocreative\paymentexpress\gateways;
 
 use platocreative\paymentexpress\models\RequestResponse;
+use platocreative\paymentexpress\events\CreateGatewayEvent;
+
 
 use Craft;
 use craft\commerce\base\RequestResponseInterface;
@@ -24,6 +26,11 @@ use yii\base\NotSupportedException;
 
 class PxPay extends OffsiteGateway
 {
+
+    // Constants
+    // =========================================================================
+    const EVENT_BEFORE_CREATE_GATEWAY = 'beforeCreateGateway';
+
     // Properties
     // =========================================================================
     /**
@@ -82,7 +89,15 @@ class PxPay extends OffsiteGateway
         $gateway = Omnipay::create($this->getGatewayClassName());
         $gateway->setUsername(Craft::parseEnv($this->username));
         $gateway->setPassword(Craft::parseEnv($this->password));
-        return $gateway;
+        
+        $event = new CreateGatewayEvent([
+            'gateway' => $gateway
+        ]);
+
+        // Raise 'beforeCreateGateway' event
+        $this->trigger(self::EVENT_BEFORE_CREATE_GATEWAY, $event);
+        
+        return $event->gateway;
     }
 
     /**

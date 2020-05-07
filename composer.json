@@ -1,7 +1,7 @@
 {
   "name": "platocreative/commerce-payment-express",
-  "description": "Payment Express (DPS) (Windcave) integration for Craft Commerce 2",
-  "version": "1.3.3",
+  "description": "Payment Express (DPS) (Windcave) integration for Craft Commerce",
+  "version": "1.4.0",
   "type": "craft-plugin",
   "keywords": [
     "payment express",

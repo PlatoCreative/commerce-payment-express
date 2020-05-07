@@ -1,5 +1,9 @@
 # Release Notes for Payment Express (Windcave) for Craft Commerce
 
+## 1.4.0 - 2020-05-08
+### Added
+- New EVENT added to allow updates to the gateway before it is created.
+
 ## 1.3.3 - 2020-04-27
 ### Fixed
 - TestMode now gets passed through as an option

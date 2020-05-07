@@ -43,6 +43,29 @@ Test credit cards can be found [here](https://www.paymentexpress.com/support-mer
 ## Transactions
 Transactions in Craft Commerce are identified by a long hash which is longer than 16 characters long. Payment Express can only store transaction ids that are 16 or less so this plugin will use the first 16 characters of the transaction id that Craft generates and stores.
 
+## Events
+`beforeCreateGateway`
+
+This event allows you to extend or change gateway settings before it is sent off. For example you might want to update login details dyanmically.
+
+```php
+use platocreative\paymentexpress\gateways\PxPay;
+use platocreative\paymentexpress\events\CreateGatewayEvent;
+use yii\base\Event;
+
+Event::on(
+    PxPay::class,
+    PxPay::EVENT_BEFORE_CREATE_GATEWAY,
+    function(CreateGatewayEvent $event) {
+        // $event->gateway is Omnipay::create();
+        // e.g. $event->gateway->setUsername()
+    }
+);
+
+```
+
+
+
 ## Todo
 - [] Add support for PXPost
 - [] Add tests to ensure checkout using PXPay is available
