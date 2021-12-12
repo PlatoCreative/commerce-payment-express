@@ -1,5 +1,9 @@
 # Release Notes for Payment Express (Windcave) for Craft Commerce
 
+## 1.5.0 - 2021-12-13
+### Changed
+- Updated commerce-omnipay to version 3.
+
 ## 1.4.0 - 2020-05-08
 ### Added
 - New EVENT added to allow updates to the gateway before it is created.
