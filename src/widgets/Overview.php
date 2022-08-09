@@ -63,7 +63,7 @@ class Overview extends Widget
     /**
      * @inheritdoc
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return parent::getTitle();
     }
@@ -71,7 +71,7 @@ class Overview extends Widget
     /**
      * @inheritdoc
      */
-    public function getBodyHtml()
+    public function getBodyHtml(): ?string
     {
         $revenue = $this->_getRevenue();
         $transactions = $this->_getTotalTransactions();
@@ -90,7 +90,7 @@ class Overview extends Widget
     /**
      * @inheritdoc
      */
-    public function getSettingsHtml(): string
+    public function getSettingsHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate('payment-express-for-craft-commerce-2/_components/widgets/Overview/settings', [
             'widget' => $this,
