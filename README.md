@@ -2,6 +2,18 @@
 
 <h1 align="center">Payment Express (Windcave) for Craft Commerce</h1>
 
+### This plugin is no longer maintained
+This Craft CMS plugin is no longer actively maintained by the original developers. We are leaving the code available for anyone who may find it useful, but we will not be providing support or updates.
+
+If you wish to make any changes or improvements to the plugin, you are welcome to fork the repository and work on it independently. If you would like to take over ownership of the repository, please contact us to discuss.
+
+Archive the repository
+To ensure that this plugin remains available for anyone who may need it, we have archived the repository. This means that it will remain available for viewing and forking, but will no longer accept pull requests or issues.
+
+Thank you for your interest in this plugin!
+
+
+
 This plugin provides an [Payment Express/Windcave](https://www.windcave.com/) integration (PXPay) for [Craft Commerce](https://craftcms.com/commerce).
 
 ## Requirements
