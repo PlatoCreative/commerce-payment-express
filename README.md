@@ -7,7 +7,6 @@ This Craft CMS plugin is no longer actively maintained by the original developer
 
 If you wish to make any changes or improvements to the plugin, you are welcome to fork the repository and work on it independently. If you would like to take over ownership of the repository, please contact us to discuss.
 
-##Archive the repository
 To ensure that this plugin remains available for anyone who may need it, we have archived the repository. This means that it will remain available for viewing and forking, but will no longer accept pull requests or issues.
 
 Thank you for your interest in this plugin!
